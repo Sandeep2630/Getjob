@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        width: 1400px;
+        .text{
+            font-size: 34px;
+            font-weight: bold;
+          .logo{
+
+          }
+          .dot{
+            color: #1dbf73;
+          }
+        }
+        .links{
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-weight: 500;
+            span{}
+        }
+    }
+}
