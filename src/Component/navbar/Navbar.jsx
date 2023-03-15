@@ -31,7 +31,7 @@ const Navbar = () => {
           <span className="dot">.</span>
         </div>
         <div className="links">
-          <span>Getjob Business</span>
+          <span>Get job Business</span>
           <span>Explore</span>
           <span>English</span>
           <span>Sign in </span>
@@ -57,7 +57,7 @@ const Navbar = () => {
                     </>
                   )}
 
-                  <span>Orders</span>
+                  <span>Order</span>
                   <span>Message</span>
                   <span>Logout</span>
                 </div>
@@ -71,8 +71,13 @@ const Navbar = () => {
         <>
           <hr />
           <div className="menu">
-            <span>test1</span>
-            <span>test2</span>
+            <span>test</span>
+            <span>test</span>
+            <span>test</span>
+            <span>test</span>
+            <span>test</span>
+            <span>test</span>
+            <span>test</span>
           </div>
         </>
       )}
