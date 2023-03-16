@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [seller, setSeller] = useState(true);
+  const [isGigOpen, setIsGigOpen] = useState(true);
   const scrollShow = () => {
     console.log(" iam working");
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -43,24 +43,31 @@ const Navbar = () => {
           )}
           {user && (
             <>
-              <div className="user">
+              <div
+                onClick={() => {
+                  setIsGigOpen((s) => !s);
+                }}
+                className="user"
+              >
                 <img
                   src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
                   alt=""
                 />
+                <div>dave</div>
+                {isGigOpen && (
+                  <div className="options">
+                    {user.isSeller && (
+                      <>
+                        <span>Gig</span>
+                        <span>Add a Gig</span>
+                      </>
+                    )}
 
-                <div className="options">
-                  {user.isSeller && (
-                    <>
-                      <span>Gig</span>
-                      <span>Add a Gig</span>
-                    </>
-                  )}
-
-                  <span>Order</span>
-                  <span>Message</span>
-                  <span>Logout</span>
-                </div>
+                    <span>Order</span>
+                    <span>Message</span>
+                    <span>Logout</span>
+                  </div>
+                )}
               </div>
             </>
           )}
