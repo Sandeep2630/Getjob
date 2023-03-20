@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.scss";
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [isGigOpen, setIsGigOpen] = useState(true);
+  const [isGigOpen, setIsGigOpen] = useState(false);
+  const { pathname } = useLocation();
+
   const scrollShow = () => {
     console.log(" iam working");
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -22,22 +24,22 @@ const Navbar = () => {
   };
 
   return (
-    <div className={active ? "navbar active " : "navbar"}>
+    <div className={active || pathname != "/" ? "navbar active " : "navbar"}>
       <div className="container">
         <div className="text">
-          {/* <Link to="/"> */}
-          <span className="logo">Getjob</span>
-          {/* </Link> */}
+          <Link to="/" className="link">
+            <span className="logo">Getjob</span>
+          </Link>
           <span className="dot">.</span>
         </div>
         <div className="links">
-          <span>Get job Business</span>
-          <span>Explore</span>
-          <span>English</span>
-          <span>Sign in </span>
+          <Link className="link">Get job Business</Link>
+          <Link className="link">Explore</Link>
+          <Link className="link">English</Link>
+          <Link className="link">Sign in </Link>
           {!user?.isSeller && (
             <>
-              <span>Become a Seller</span>
+              <Link>Become a Seller</Link>
               <button>Join</button>
             </>
           )}
@@ -58,14 +60,24 @@ const Navbar = () => {
                   <div className="options">
                     {user.isSeller && (
                       <>
-                        <span>Gig</span>
-                        <span>Add a Gig</span>
+                        <Link className="link" to="/mygigs">
+                          Gigs
+                        </Link>
+                        <Link className="link" to="/add">
+                          Add a Gig
+                        </Link>
                       </>
                     )}
 
-                    <span>Order</span>
-                    <span>Message</span>
-                    <span>Logout</span>
+                    <Link to="/orders" className="link">
+                      Order
+                    </Link>
+                    <Link to="/messages" className="link">
+                      Message
+                    </Link>
+                    <Link to="/" className="link">
+                      Logout
+                    </Link>
                   </div>
                 )}
               </div>
@@ -74,20 +86,41 @@ const Navbar = () => {
         </div>
       </div>
 
-      {active && (
-        <>
-          <hr />
-          <div className="menu">
-            <span>test</span>
-            <span>test</span>
-            <span>test</span>
-            <span>test</span>
-            <span>test</span>
-            <span>test</span>
-            <span>test</span>
-          </div>
-        </>
-      )}
+      {active ||
+        (pathname != "/" && (
+          <>
+            <hr />
+            <div className="menu">
+              <Link className="link menuLink" to="/">
+                Graphics & Design
+              </Link>
+              <Link className="link menuLink" to="/">
+                Video & Animation
+              </Link>
+              <Link className="link menuLink" to="/">
+                Writing & Translation
+              </Link>
+              <Link className="link menuLink" to="/">
+                AI Services
+              </Link>
+              <Link className="link menuLink" to="/">
+                Digital Marketing
+              </Link>
+              <Link className="link menuLink" to="/">
+                Music & Audio
+              </Link>
+              <Link className="link menuLink" to="/">
+                Programming & Tech
+              </Link>
+              <Link className="link menuLink" to="/">
+                Business
+              </Link>
+              <Link className="link menuLink" to="/">
+                Lifestyle
+              </Link>
+            </div>
+          </>
+        ))}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Add.scss";
 const Add = () => {
-  return <div></div>;
+  return <div>add</div>;
 };
 
 export default Add;

@@ -1,12 +1,15 @@
-import "./main.css";
 import Navbar from "./Component/navbar/Navbar";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./pages/home/Home";
-import { Children } from "react";
 import Footer from "./Component/footer/Footer";
 import Gig from "./pages/gig/Gig";
 import Gigs from "./pages/gigs/Gigs";
-
+import Orders from "./pages/orders/Orders";
+import MyGigs from "./pages/myGigs/MyGigs";
+import Add from "./pages/add/Add";
+import Message from "./pages/messages/Message";
+import Messages from "./pages/messages/Message";
+import "./app.scss";  
 function App() {
   const Layout = () => {
     return (
@@ -35,40 +38,24 @@ function App() {
           element: <Gig />,
         },
         {
-          path: "/",
-          element: <Home />,
+          path: "/orders",
+          element: <Orders />,
         },
         {
-          path: "/",
-          element: <Home />,
+          path: "/mygigs",
+          element: <MyGigs />,
         },
         {
-          path: "/",
-          element: <Home />,
+          path: "/add",
+          element: <Add />,
         },
         {
-          path: "/",
-          element: <Home />,
+          path: "/message/:id",
+          element: <Message />,
         },
         {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/",
-          element: <Home />,
+          path: "/messages",
+          element: <Messages />,
         },
       ],
     },
